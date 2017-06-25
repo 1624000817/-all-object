@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 520px;
+				height: 280px;
+				overflow: hidden;
+			}
+			/*ul{
+			list-style:none;
+			width: 1560px;
+			height: 280px;
+			}
+			ul>li{
+				width: 520px;
+				float: left;
+			}*/
+			ul{
+				list-style:none;
+				width: 520px;
+				height: 280px;
+			}
+			ul li{
+				position: absolute;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<ul>
+				<li><img src="img/pic1.jpg" alt="" /></li>
+				<li><img src="img/pic2.jpg"/></li>
+				<li><img src="img/pic3.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){  //jquery轮播
+			/*var time;
+			function move(){
+				$("ul").animate({"margin-left":"-520px"},function(){
+					$("ul").css("margin-left","0px");
+					$("ul").append($("li").eq(0));
+				})
+			}
+			time=setInterval(move,2000)*/
+			var index=0;
+			$("li:gt(0)").hide();
+			function move(){
+				if(index==2){
+					$("ul li").eq(index).hide();
+					index=0;
+					$("ul li").eq(index).show();
+				}else{
+					$("ul li").eq(index).hide();
+					$("ul li").eq(index+1).show();
+					index++;
+				}
+			}
+			setInterval(move,2000)
+		})
+	</script>
+</html>

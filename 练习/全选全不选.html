@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="dj" value="" /><label>全选</label>	
+		<ul>
+			<li><input type="checkbox" name="" id="" value="" />苹果</li>
+			<li><input type="checkbox" name="" id="" value="" />香蕉</li>
+			<li><input type="checkbox" name="" id="" value="" />芒果</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("#dj").click(function(){
+				var t=$(this).prop("checked");
+				if(t==true){
+					$("label").html("反选");
+					$("ul li input").attr("checked",true)
+				}else{
+					$("label").html("全选");
+					$("ul li input").attr("checked",false)
+				}
+			})
+		})
+	</script>
+</html>

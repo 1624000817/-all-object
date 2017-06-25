@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="mytime"></div>
+	</body>
+	<script type="text/javascript">
+		function fun(){
+			var tm1=new Date();
+			var tm2=new Date("2017.10.01");
+			var myt=tm2.getTime()-tm1.getTime();
+			var S=Math.floor(myt/1000);
+			var D=Math.floor(S/(60*60*24));
+			var H=Math.floor((S-D*60*60*24)/(60*60));
+			var F=Math.floor((S-D*60*60*24-H*60*60)/60);
+			var sc=S-D*60*60*24-H*60*60-F*60;
+			var mytime=document.getElementById("mytime");
+			mytime.innerHTML="还有："+D+"天"+H+"小时"+F+"分钟"+sc+"秒"
+		}
+		setInterval(fun,1000)
+	</script>
+</html>

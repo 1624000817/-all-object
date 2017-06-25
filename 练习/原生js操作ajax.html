@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul></ul>
+	</body>
+	<script>
+		var ul=document.getElementsByTagName("ul")[0];
+		
+		//创建XMLHttpRequest对象
+		var http;
+		if(window.XMLHttpRequest){
+			http=new XMLHttpRequest();
+		}else{
+			http=new ActiveXObject("Microsort.XMLHTTP");
+		}
+		//打开接口连接，并发送请求
+		http.open("get","http://datainfo.duapp.com/shopdata/getclass.php");
+		http.send();
+		//获取数据，通过dom渲染到页面上
+		http.onreadystatechange=function(){
+			if(http.readyState==4&&http.status==200){
+				var content=http.responseText;
+				var J=JSON.parse(content);
+				for(var i=0;i<J.length;i++){
+					var li=document.createElement("li");
+					li.textContent=J[i].className;
+					ul.appendChild(li)
+				}
+				
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 520px;
+				height: 280px;
+				overflow: hidden;
+			}
+			ul{
+			list-style:none;
+			width: 1560px;
+			height: 280px;
+			}
+			ul>li{
+				width: 520px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		//js轮播
+		<div id="all">
+			<ul id="ul">
+				<li><img src="img/pic1.jpg" alt="" /></li>
+				<li><img src="img/pic2.jpg"/></li>
+				<li><img src="img/pic3.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ul=document.getElementById("ul")
+		var li=document.getElementsByTagName("li");
+		var str=0;
+		function move(){
+			str+=520;
+			if(str>=520*(li.length)){
+					str=0;
+				}
+			ul.style.marginLeft=-str+"px"
+			
+		}
+		setInterval(move,2000)
+	</script>
+</html>
